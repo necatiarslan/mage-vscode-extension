@@ -1,0 +1,279 @@
+{
+	"name": "mage-vscode-extension",
+	"displayName": "Mage",
+	"description": "Mage Open-source data pipeline tool for transforming and integrating data. The modern replacement for Airflow",
+	"version": "0.0.1",
+	"publisher": "NecatiARSLAN",
+	"icon": "media/mage-extension-logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/necatiarslan/mage-vscode-extension"
+	},
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pipelineTreeView.refreshServer",
+				"title": "Refresh",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "pipelineTreeView.connectServer",
+				"title": "Connect",
+				"icon": "$(plug)"
+			},
+			{
+				"command": "pipelineTreeView.addServer",
+				"title": "Add",
+				"icon": "$(add)"
+			},
+			{
+				"command": "pipelineTreeView.removeServer",
+				"title": "Remove",
+				"icon": "$(remove)"
+			},
+			{
+				"command": "pipelineTreeView.filter",
+				"title": "Filter",
+				"icon": "$(filter)"
+			},
+			{
+				"command": "pipelineTreeView.showOnlyActive",
+				"title": "Show Only Active",
+				"icon": "$(circle-large-filled)"
+			},
+			{
+				"command": "pipelineTreeView.showOnlyFavorite",
+				"title": "Show Only Favorite",
+				"icon": "$(bookmark)"
+			},
+			{
+				"command": "pipelineTreeView.viewPipelineView",
+				"title": "View",
+				"icon": "$(preview)"
+			},
+			{
+				"command": "pipelineTreeView.triggerPipeline",
+				"title": "Trigger",
+				"icon": "$(run)"
+			},
+			{
+				"command": "pipelineTreeView.triggerPipelineWithConfig",
+				"title": "Trigger Pipeline w/Config"
+			},
+			{
+				"command": "pipelineTreeView.checkPipelineRunState",
+				"title": "Check Run State"
+			},
+			{
+				"command": "pipelineTreeView.checkAllPipelinesRunState",
+				"title": "Check All Run State"
+			},
+			{
+				"command": "pipelineTreeView.pausePipeline",
+				"title": "Pause Pipeline"
+			},
+			{
+				"command": "pipelineTreeView.unPausePipeline",
+				"title": "UnPause Pipeline"
+			},
+			{
+				"command": "pipelineTreeView.addToFavPipeline",
+				"title": "Fav Pipeline"
+			},
+			{
+				"command": "pipelineTreeView.deleteFromFavPipeline",
+				"title": "UnFav Pipeline"
+			},
+			{
+				"command": "pipelineTreeView.lastPipelineRunLog",
+				"title": "Run Log",
+				"icon": "$(output)"
+			},
+			{
+				"command": "pipelineTreeView.pipelineSourceCode",
+				"title": "Source Code",
+				"icon": "$(code)"
+			},
+			{
+				"command": "pipelineTreeView.showPipelineView",
+				"title": "Pipeline View"
+			},
+			{
+				"command": "pipelineTreeView.clearServers",
+				"title": "Clear Servers"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "pipelineTreeView.refreshServer",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@7"
+				},
+				{
+					"command": "pipelineTreeView.connectServer",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@6"
+				},
+				{
+					"command": "pipelineTreeView.addServer",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@5"
+				},
+				{
+					"command": "pipelineTreeView.removeServer",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@4"
+				},
+				{
+					"command": "pipelineTreeView.filter",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@3"
+				},
+				{
+					"command": "pipelineTreeView.showOnlyActive",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@2"
+				},
+				{
+					"command": "pipelineTreeView.showOnlyFavorite",
+					"when": "view == pipelineTreeView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "pipelineTreeView.clearServers",
+					"when": "view == pipelineTreeView",
+					"group": "other"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "pipelineTreeView.viewPipelineView",
+					"when": "view == pipelineTreeView",
+					"group": "inline"
+				},
+				{
+					"command": "pipelineTreeView.triggerPipeline",
+					"when": "view == pipelineTreeView",
+					"group": "inline"
+				},
+				{
+					"command": "pipelineTreeView.lastPipelineRunLog",
+					"when": "view == pipelineTreeView",
+					"group": "inline"
+				},
+				{
+					"command": "pipelineTreeView.triggerPipelineWithConfig",
+					"when": "view == pipelineTreeView",
+					"group": "trigger"
+				},
+				{
+					"command": "pipelineTreeView.checkPipelineRunState",
+					"when": "view == pipelineTreeView",
+					"group": "trigger"
+				},
+				{
+					"command": "pipelineTreeView.checkAllPipelinesRunState",
+					"when": "view == pipelineTreeView",
+					"group": "trigger"
+				},
+				{
+					"command": "pipelineTreeView.pausePipeline",
+					"when": "view == pipelineTreeView",
+					"group": "pause"
+				},
+				{
+					"command": "pipelineTreeView.unPausePipeline",
+					"when": "view == pipelineTreeView",
+					"group": "pause"
+				},
+				{
+					"command": "pipelineTreeView.addToFavPipeline",
+					"when": "view == pipelineTreeView",
+					"group": "fav"
+				},
+				{
+					"command": "pipelineTreeView.deleteFromFavPipeline",
+					"when": "view == pipelineTreeView",
+					"group": "fav"
+				},
+				{
+					"command": "pipelineTreeView.pipelineSourceCode",
+					"when": "view == pipelineTreeView",
+					"group": "other"
+				},
+				{
+					"command": "pipelineTreeView.showPipelineView",
+					"when": "view == pipelineTreeView",
+					"group": "other"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "mage-explorer",
+					"title": "Mage",
+					"icon": "media/mage-extension-logo.png"
+				}
+			]
+		},
+		"views": {
+			"mage-explorer": [
+				{
+					"id": "pipelineTreeView",
+					"name": "Mage",
+					"icon": "media/mage-extension-logo.png"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "pipelineTreeView",
+				"contents": "To connect to Mage Click Below \n [Connect to Mage](command:pipelineTreeView.addServer)\n\n You should enable REST Api in the Mage to connect.\n For now, only basic authentication (username/password) supported.\n [learn more](https://github.com/necatiarslan/mage-vscode-extension/blob/main/README.md) \n\n Click [here](https://www.youtube.com/watch?v=aTaytcxy2Ck) on how to run Mage in your local machine in 5 mins."
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/base-64": "^1.0.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.69.0",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"@vscode/test-electron": "^2.1.5",
+		"eslint": "^8.18.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"ts-loader": "^9.3.1",
+		"typescript": "^4.7.4",
+		"webpack": "^5.73.0",
+		"webpack-cli": "^4.10.0"
+	},
+	"dependencies": {
+		"@vscode/codicons": "^0.0.32",
+		"@vscode/webview-ui-toolkit": "^1.0.0",
+		"base-64": "^1.0.0",
+		"node-fetch": "^3.2.9",
+		"tmp": "^0.2.1"
+	}
+}
